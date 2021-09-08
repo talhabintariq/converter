@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="app">
       <div className="app__navbar">
-        <h1>Youtube Video/MP3 Convertor</h1>
+        <h1>Youtube Downloader/Convertor</h1>
       </div>
       <div className="app__linkBox">
         <form onSubmit={(e) => e.preventDefault()}>
