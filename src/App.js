@@ -6,12 +6,21 @@ import DownloadButtonInvalid from "./DownloadButtonInvalid";
 
 function App() {
   const [videoUrl, setVideoUrl] = useState("");
+  const [canDownload, setCanDownload] = useState(false);
   const [id, setId] = useState("");
 
   useEffect(() => {
     const id = videoUrl.replace("https://www.youtube.com/watch?v=", "");
     console.log(id);
     setId(id);
+
+    setCanDownload(
+      videoUrl.startsWith("https://www.youtube.com/watch?v=") ||
+        videoUrl.startsWith("https://youtube.com/watch?v=") ||
+        videoUrl.startsWith("www.youtube.com/watch?v=") ||
+        videoUrl.startsWith("youtube.com/watch?v=") ||
+        videoUrl.startsWith("v=")
+    );
   }, [videoUrl]);
 
   return (
@@ -33,11 +42,7 @@ function App() {
         <DownloadButtonDefault />
       ) : (
         <div>
-          {videoUrl.startsWith("https://www.youtube.com/watch?v=") ||
-          videoUrl.startsWith("https://youtube.com/watch?v=") ||
-          videoUrl.startsWith("www.youtube.com/watch?v=") ||
-          videoUrl.startsWith("youtube.com/watch?v=") ||
-          videoUrl.startsWith("v=") ? (
+          {canDownload ? (
             <div>
               <DownloadButton id={id} type="mp3" />
               <br />
