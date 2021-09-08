@@ -11,7 +11,6 @@ function App() {
 
   useEffect(() => {
     const id = videoUrl.replace("https://www.youtube.com/watch?v=", "");
-    console.log(id);
     setId(id);
 
     setCanDownload(
