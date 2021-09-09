@@ -14,7 +14,7 @@ function DownloadButton({ id, type }) {
     }
 
     fetchMyAPI();
-  }, [id, type]);
+  }, [id, type, Res]);
 
   return (
     <div className="download">
