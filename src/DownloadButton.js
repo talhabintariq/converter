@@ -6,19 +6,19 @@ function DownloadButton({ id, type }) {
   const [Res, setRes] = useState({});
 
   useEffect(() => {
-    async function fetchMyAPI() {
+    async function fetchconvertedData() {
       const url = `https://www.yt-download.org/api/button/${type}/${id}`;
 
       const response = await fetch(url);
       setRes(response);
     }
 
-    fetchMyAPI();
+    fetchconvertedData();
   }, [id, type, Res]);
 
   return (
     <div className="download">
-      <h2>Download {type === "mp3" ? "mp3" : "videos"} file</h2>
+      <h2>Download {type === "mp3" ? "mp3" : "video"} file</h2>
       {Res.status !== 200 ? (
         <CircularProgress />
       ) : (
